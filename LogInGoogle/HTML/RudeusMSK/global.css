@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    line-height: normal;
+}
+
+:root {
+    /* fonts */
+    --font-arsenal: Arsenal;
+
+    /* font sizes */
+    --font-size-2xl: 21px;
+    --font-size-mid: 17px;
+    --font-size-2xs: 11px;
+
+    /* Colors */
+    --color-white: #fff;
+    --color-gainsboro: #d9d9d9;
+
+    /* Border radiuses */
+    --br-5xl: 24px;
+}
