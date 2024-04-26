@@ -65,8 +65,8 @@ namespace LogInGoogle.Helper
                     using (var client = new MailKit.Net.Smtp.SmtpClient())
                     {
                         client.Connect("smtp.gmail.com", 587, false);
-                        client.Authenticate("huynhthienthe@gmail.com", "ctdb xiao ittb loru");
-                        client.Send(message);
+                        client.Authenticate("huynhthienthe@gmail.com", "ctdb xiao ittb loru"); // email password
+                    client.Send(message);
                         client.Disconnect(true);
                     }
                 }

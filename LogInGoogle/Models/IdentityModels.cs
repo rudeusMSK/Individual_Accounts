@@ -39,11 +39,17 @@ namespace LogInGoogle.Models
             modelBuilder.Entity<IdentityUserClaim>().ToTable("Tbl_IdentityUserClaim", "dbo");
             modelBuilder.Entity<IdentityUserRole>().ToTable("Tbl_IdentityUserRole", "dbo");
             modelBuilder.Entity<IdentityUserLogin>().ToTable("Tbl_IdentityUserLogin", "dbo");
+
+            //
+            modelBuilder.Entity<Category>();
+            modelBuilder.Entity<Product>();
         }
 
         public static ApplicationUserDb Create()
         {
             return new ApplicationUserDb();
         }
+
+        public System.Data.Entity.DbSet<LogInGoogle.Models.Category> Categories { get; set; }
     }
 }

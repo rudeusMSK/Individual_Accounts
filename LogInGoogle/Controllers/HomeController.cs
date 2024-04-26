@@ -26,5 +26,11 @@ namespace LogInGoogle.Controllers
 
             return View();
         }
+
+        [Authorize]
+        public ActionResult Claims()
+        {
+            return View();
+        }
     }
 }

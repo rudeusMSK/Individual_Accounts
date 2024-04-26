@@ -166,11 +166,22 @@ namespace LogInGoogle.Controllers
                     Fullname = model.Fullname,
                     Age = model.Age,
                     Address = model.Address,
-                    City = model.City,
+                    City = model.City
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var mdUser = UserManager.FindByEmail(user.Email);
+
+                    UserManager.AddToRole(mdUser.Id, "Normaluser");
+
+                    // Claim do Microsoft định nghĩa 
+                    UserManager.AddClaim(mdUser.Id, new Claim(ClaimTypes.StreetAddress, user.Address));
+                    
+                    // Claim tự định nghĩa
+                    UserManager.AddClaim(mdUser.Id, new Claim("Age", user.Age.ToString()));
+
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

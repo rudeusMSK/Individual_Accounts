@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Claims";
+}
+
+<h2>Claims</h2>
+
+<table>
+    <tr>
+        <th>Claim Name</th>
+        <th>Value</th>
+    </tr>
+    @{
+        var IsClaims = ((System.Security.Claims.ClaimsPrincipal)User).Claims.ToList();
+        for (int i = 0; i < IsClaims.Count; i++)
+        {
+        <tr>
+            <th>@IsClaims[i].Type</th>
+            <th>@IsClaims[i].Value</th>
+        </tr>
+        }
+    }
+</table>
